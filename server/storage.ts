@@ -1,5 +1,5 @@
 import { db, hasDatabase } from "./db";
-import { dummy, type Dummy } from "@shared/schema";
+import { dummy, type Dummy } from "../shared/schema";
 
 export interface IStorage {
   getDummies(): Promise<Dummy[]>;
