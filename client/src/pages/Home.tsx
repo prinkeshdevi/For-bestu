@@ -12,7 +12,12 @@ export default function Home() {
   const [showSuccess, setShowSuccess] = useState(false);
   const reasonsRef = useRef<HTMLDivElement>(null);
   const questionRef = useRef<HTMLDivElement>(null);
-
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+const playMusic = () => {
+  if (audioRef.current) {
+    audioRef.current.play();
+  }
+};
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -102,9 +107,9 @@ export default function Home() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                Will you be my <br className="hidden md:block"/>
+               Speically For My <br className="hidden md:block"/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-red-500">
-                  Galentine?
+                  Kuchupuchuu
                 </span>
               </motion.h1>
 
@@ -114,7 +119,7 @@ export default function Home() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                Because life is better with my babygurl 🎀🌸💅. ✨
+                Life is better with my babygurl 🎀🌸💗✨ Than lets gooo....
               </motion.p>
 
               <motion.div
@@ -152,9 +157,9 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                   {[
                     {
-                      emoji: "😂",
-                      title: "Chaotic Laughs",
-                      desc: "Those temporary characters gave us permanent gossips and laughter.",
+                      emoji: "❤️",
+                      title: "The way you love",
+                      desc: "No body can love me the way u love me and take care of mee!!.",
                       color: "bg-pink-50"
                     },
                     {
@@ -164,15 +169,15 @@ export default function Home() {
                       color: "bg-rose-50"
                     },
                     {
-                      emoji: "🌸",
-                      title: "My Love",
-                      desc: "Nobody can love you as much as I can and you know you've found the one when they can beat me in loving you.",
+                      emoji: "😉",
+                      title: "Only Minee!!😏",
+                      desc: "You are onlyy mineee no, I am not ready to share you with anyoneeee!! not even your close oness.",
                       color: "bg-red-50"
                     },
                     {
-                      emoji: "💅",
-                      title: "Always Cheering",
-                      desc: "Nobody can do it better than me remember that babygurl.",
+                      emoji: "🥰",
+                      title: "Always Being There",
+                      desc: "Nobody can do it better than my that babygurl like she is always there for mee no matter what where and whenn!!.",
                       color: "bg-orange-50"
                     }
                   ].map((item, index) => (
@@ -229,7 +234,7 @@ export default function Home() {
                 className="text-center max-w-4xl mx-auto"
               >
                 <h2 className="text-5xl md:text-7xl font-display text-primary mb-12 drop-shadow-md">
-                  So... will you be my Galentine?
+                  So...Promise that you are only minee!?
                 </h2>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 h-40">
@@ -313,7 +318,7 @@ function SuccessView() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        YAY!
+        YAAAYYYY!!!!
       </motion.h1>
 
       <motion.div 
@@ -323,7 +328,7 @@ function SuccessView() {
         transition={{ delay: 0.6 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 font-display">
-          Galentine's Date Confirmed.
+          Lets Go On A Date!!.
         </h2>
 
         <div className="space-y-6 text-xl md:text-2xl text-left pl-4 md:pl-12">
@@ -349,7 +354,7 @@ function SuccessView() {
             <span className="text-3xl">📍</span>
             <div>
               <span className="font-bold text-primary">Where:</span>
-              <span className="ml-2 text-gray-600">Our favorite spot</span>
+              <span className="ml-2 text-gray-600">Jaha Ap Boloo Madamm!🩷</span>
             </div>
           </motion.div>
         </div>
@@ -361,7 +366,7 @@ function SuccessView() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        I like me better when I'm with you! 💖
+        I like being there with you, beside you, forever with you and I LOVE YOU THE MOST!! 💖
       </motion.p>
     </motion.div>
   );
