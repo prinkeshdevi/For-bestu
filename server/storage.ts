@@ -1,5 +1,5 @@
-import { db } from "./db";
-import { dummy, type InsertDummy, type Dummy } from "@shared/schema";
+import { db, hasDatabase } from "./db";
+import { dummy, type Dummy } from "@shared/schema";
 
 export interface IStorage {
   getDummies(): Promise<Dummy[]>;
@@ -7,8 +7,16 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getDummies(): Promise<Dummy[]> {
-    return await db.select().from(dummy);
+    return await db!.select().from(dummy);
   }
 }
 
-export const storage = new DatabaseStorage();
+export class MemoryStorage implements IStorage {
+  private dummies: Dummy[] = [];
+
+  async getDummies(): Promise<Dummy[]> {
+    return this.dummies;
+  }
+}
+
+export const storage = hasDatabase ? new DatabaseStorage() : new MemoryStorage();
