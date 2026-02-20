@@ -15,6 +15,11 @@ export default defineConfig({
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
+  build: {
+    // Keep output aligned with server/static.ts (dist/public)
+    outDir: path.resolve(__dirname, "./dist/public"),
+    emptyOutDir: true,
+  },
   server: {
     host: "127.0.0.1",
     port: 5173,
