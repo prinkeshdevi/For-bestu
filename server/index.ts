@@ -3,7 +3,6 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
-import { useRef } from "react";
 
 const app = express();
 const httpServer = createServer(app);
@@ -85,10 +84,10 @@ app.use((req, res, next) => {
     await setupVite(httpServer, app);
   }
 
-  // 🚨 Node 24 Windows Safe Listen (NO object, NO 0.0.0.0)
   const port = parseInt(process.env.PORT || "5000", 10);
 
-  httpServer.listen(port, "127.0.0.1", () => {
+  // Bind to all interfaces so the site is reachable from outside the container
+  httpServer.listen(port, () => {
     log(`Server running on http://localhost:${port}`);
   });
 })();
